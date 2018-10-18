@@ -9,18 +9,19 @@
 /* Begin PBXBuildFile section */
 		625273632CE4072A48E7855B /* Pods_Jetpal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7ACE85F14B27A77D45BAEB /* Pods_Jetpal.framework */; };
 		A8BCD44A2178AF2A006DED8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD4492178AF2A006DED8E /* AppDelegate.swift */; };
-		A8BCD44C2178AF2A006DED8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD44B2178AF2A006DED8E /* ViewController.swift */; };
 		A8BCD44F2178AF2A006DED8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCD44D2178AF2A006DED8E /* Main.storyboard */; };
 		A8BCD4512178AF2B006DED8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BCD4502178AF2B006DED8E /* Assets.xcassets */; };
 		A8BCD4542178AF2B006DED8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCD4522178AF2B006DED8E /* LaunchScreen.storyboard */; };
 		A8BCD45F2178BAF9006DED8E /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD45D2178BAF9006DED8E /* SWRevealViewController.m */; };
+		A8BCD4652178C117006DED8E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD4642178C117006DED8E /* ChatViewController.swift */; };
+		A8BCD4672178C12E006DED8E /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD4662178C12E006DED8E /* ChannelViewController.swift */; };
+		A8BCD4692178C652006DED8E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD4682178C652006DED8E /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E7ACE85F14B27A77D45BAEB /* Pods_Jetpal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jetpal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCD4462178AF2A006DED8E /* Jetpal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jetpal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCD4492178AF2A006DED8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8BCD44B2178AF2A006DED8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A8BCD44E2178AF2A006DED8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8BCD4502178AF2B006DED8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8BCD4532178AF2B006DED8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +29,9 @@
 		A8BCD45C2178BAF8006DED8E /* Jetpal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jetpal-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8BCD45D2178BAF9006DED8E /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		A8BCD45E2178BAF9006DED8E /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A8BCD4642178C117006DED8E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A8BCD4662178C12E006DED8E /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		A8BCD4682178C652006DED8E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C0F86F1ED3304C2A650B2861 /* Pods-Jetpal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jetpal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jetpal/Pods-Jetpal.release.xcconfig"; sourceTree = "<group>"; };
 		DD7FDBBBCEB52E1DA9447DAF /* Pods-Jetpal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jetpal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jetpal/Pods-Jetpal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +60,6 @@
 		A8BCD43D2178AF2A006DED8E = {
 			isa = PBXGroup;
 			children = (
-				A8BCD45B2178BADE006DED8E /* Supporting Files */,
 				A8BCD4482178AF2A006DED8E /* Jetpal */,
 				A8BCD4472178AF2A006DED8E /* Products */,
 				589F916DB4793F5894C9B2AE /* Pods */,
@@ -75,11 +78,13 @@
 		A8BCD4482178AF2A006DED8E /* Jetpal */ = {
 			isa = PBXGroup;
 			children = (
-				A8BCD4492178AF2A006DED8E /* AppDelegate.swift */,
-				A8BCD44B2178AF2A006DED8E /* ViewController.swift */,
-				A8BCD44D2178AF2A006DED8E /* Main.storyboard */,
+				A8BCD4602178BEA0006DED8E /* Delegate */,
+				A8BCD45B2178BADE006DED8E /* Supporting Files */,
+				A8BCD46B2178C664006DED8E /* Model */,
+				A8BCD46A2178C658006DED8E /* View */,
+				A8BCD4612178BEAF006DED8E /* Controller */,
+				A8BCD4622178BEB6006DED8E /* Storyboards */,
 				A8BCD4502178AF2B006DED8E /* Assets.xcassets */,
-				A8BCD4522178AF2B006DED8E /* LaunchScreen.storyboard */,
 				A8BCD4552178AF2B006DED8E /* Info.plist */,
 			);
 			path = Jetpal;
@@ -93,6 +98,47 @@
 				A8BCD45C2178BAF8006DED8E /* Jetpal-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A8BCD4602178BEA0006DED8E /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				A8BCD4492178AF2A006DED8E /* AppDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		A8BCD4612178BEAF006DED8E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A8BCD4642178C117006DED8E /* ChatViewController.swift */,
+				A8BCD4662178C12E006DED8E /* ChannelViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A8BCD4622178BEB6006DED8E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A8BCD44D2178AF2A006DED8E /* Main.storyboard */,
+				A8BCD4522178AF2B006DED8E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A8BCD46A2178C658006DED8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A8BCD4682178C652006DED8E /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8BCD46B2178C664006DED8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BFA8BF1E53136EA50CC8E1D1 /* Frameworks */ = {
@@ -230,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8BCD44C2178AF2A006DED8E /* ViewController.swift in Sources */,
 				A8BCD44A2178AF2A006DED8E /* AppDelegate.swift in Sources */,
+				A8BCD4652178C117006DED8E /* ChatViewController.swift in Sources */,
+				A8BCD4692178C652006DED8E /* GradientView.swift in Sources */,
+				A8BCD4672178C12E006DED8E /* ChannelViewController.swift in Sources */,
 				A8BCD45F2178BAF9006DED8E /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +437,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Polyakov.Jetpal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/Jetpal-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Jetpal/Supporting Files/Jetpal-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -411,7 +459,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Polyakov.Jetpal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/Jetpal-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Jetpal/Supporting Files/Jetpal-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChannelViewController.swift
 //  Jetpal
 //
 //  Created by Alexandr on 10/18/18.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ChannelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+
     }
 
-
 }
-
