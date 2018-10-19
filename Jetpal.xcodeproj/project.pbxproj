@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		625273632CE4072A48E7855B /* Pods_Jetpal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7ACE85F14B27A77D45BAEB /* Pods_Jetpal.framework */; };
+		A8799ED8217A0DBC004C12E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8799ED7217A0DBC004C12E5 /* Constants.swift */; };
+		A8799EDA217A1C0F004C12E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8799ED9217A1C0F004C12E5 /* LoginViewController.swift */; };
 		A8BCD44A2178AF2A006DED8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCD4492178AF2A006DED8E /* AppDelegate.swift */; };
 		A8BCD44F2178AF2A006DED8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BCD44D2178AF2A006DED8E /* Main.storyboard */; };
 		A8BCD4512178AF2B006DED8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BCD4502178AF2B006DED8E /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		6E7ACE85F14B27A77D45BAEB /* Pods_Jetpal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jetpal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8799ED7217A0DBC004C12E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8799ED9217A1C0F004C12E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8BCD4462178AF2A006DED8E /* Jetpal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jetpal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BCD4492178AF2A006DED8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8BCD44E2178AF2A006DED8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A8799ED6217A0DAB004C12E5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A8799ED7217A0DBC004C12E5 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		A8BCD43D2178AF2A006DED8E = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 			children = (
 				A8BCD4602178BEA0006DED8E /* Delegate */,
 				A8BCD45B2178BADE006DED8E /* Supporting Files */,
+				A8799ED6217A0DAB004C12E5 /* Utilities */,
 				A8BCD46B2178C664006DED8E /* Model */,
 				A8BCD46A2178C658006DED8E /* View */,
 				A8BCD4612178BEAF006DED8E /* Controller */,
@@ -113,6 +126,7 @@
 			children = (
 				A8BCD4642178C117006DED8E /* ChatViewController.swift */,
 				A8BCD4662178C12E006DED8E /* ChannelViewController.swift */,
+				A8799ED9217A1C0F004C12E5 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,11 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8799EDA217A1C0F004C12E5 /* LoginViewController.swift in Sources */,
 				A8BCD44A2178AF2A006DED8E /* AppDelegate.swift in Sources */,
 				A8BCD4652178C117006DED8E /* ChatViewController.swift in Sources */,
 				A8BCD4692178C652006DED8E /* GradientView.swift in Sources */,
 				A8BCD4672178C12E006DED8E /* ChannelViewController.swift in Sources */,
 				A8BCD45F2178BAF9006DED8E /* SWRevealViewController.m in Sources */,
+				A8799ED8217A0DBC004C12E5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
