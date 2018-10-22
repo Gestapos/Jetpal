@@ -217,7 +217,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="kOc-bd-ry3"/>
                                         </constraints>
-                                        <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -234,7 +234,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="1ul-GH-V3U"/>
                                         </constraints>
-                                        <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -365,7 +365,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="Akz-na-ygU"/>
                                         </constraints>
-                                        <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -382,7 +382,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="gjd-RS-laM"/>
                                         </constraints>
-                                        <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -399,7 +399,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="zmC-Pn-bnD"/>
                                         </constraints>
-                                        <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -468,6 +468,7 @@
                         <outlet property="userImage" destination="e8l-da-6Ay" id="XrE-5j-HlW"/>
                         <outlet property="usernameTxt" destination="qK1-I8-uij" id="Ugy-Y0-YjL"/>
                         <segue destination="aHg-mU-Why" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="g9A-6T-grg"/>
+                        <segue destination="Rg7-O5-328" kind="show" identifier="toAvatarPicker" id="Ump-8W-dM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2j4-NA-4OC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,12 +476,100 @@
             </objects>
             <point key="canvasLocation" x="2492" y="-389.05547226386807"/>
         </scene>
+        <!--Avatar Picker View Controller-->
+        <scene sceneID="C6Q-JS-kmM">
+            <objects>
+                <viewController id="Rg7-O5-328" customClass="AvatarPickerViewController" customModule="Jetpal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q0j-md-uVi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H1-Vr-Zuy">
+                                <rect key="frame" x="16" y="28" width="28" height="28"/>
+                                <state key="normal" image="smackBack"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="Rg7-O5-328" eventType="touchUpInside" id="pTs-Bm-1bM"/>
+                                    <action selector="closePressed:" destination="sKv-rF-Xsu" eventType="touchUpInside" id="BQT-zB-gWG"/>
+                                    <action selector="closePressed:" destination="ifZ-Zt-aaH" eventType="touchUpInside" id="QWj-Op-VzP"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="q4h-vc-Als">
+                                <rect key="frame" x="107.5" y="28" width="160" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="Tpw-eN-3Rh"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Dark"/>
+                                    <segment title="Light"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlChanged:" destination="Rg7-O5-328" eventType="valueChanged" id="27l-mn-895"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UkH-Hv-mSu">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fko-gP-tkM">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="avatarCell" id="Slt-xN-EdF" customClass="AvatarCell" customModule="Jetpal" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Kx-cS-3Sn">
+                                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="2Kx-cS-3Sn" firstAttribute="leading" secondItem="Slt-xN-EdF" secondAttribute="leading" constant="10" id="Sy9-rP-WIS"/>
+                                            <constraint firstItem="2Kx-cS-3Sn" firstAttribute="top" secondItem="Slt-xN-EdF" secondAttribute="top" constant="10" id="dda-79-oYk"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Kx-cS-3Sn" secondAttribute="bottom" constant="10" id="fAF-LS-OLB"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Kx-cS-3Sn" secondAttribute="trailing" constant="10" id="lM9-rG-V8a"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="avatarImg" destination="2Kx-cS-3Sn" id="c3h-B9-GXe"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jWi-NM-lxc" firstAttribute="bottom" secondItem="UkH-Hv-mSu" secondAttribute="bottom" id="0ZG-gh-7A5"/>
+                            <constraint firstItem="jWi-NM-lxc" firstAttribute="trailing" secondItem="UkH-Hv-mSu" secondAttribute="trailing" id="Ch6-RX-YUG"/>
+                            <constraint firstItem="UkH-Hv-mSu" firstAttribute="top" secondItem="0H1-Vr-Zuy" secondAttribute="bottom" constant="20" id="Xb5-z1-zPa"/>
+                            <constraint firstItem="0H1-Vr-Zuy" firstAttribute="leading" secondItem="jWi-NM-lxc" secondAttribute="leading" constant="16" id="Y7h-7M-Ujd"/>
+                            <constraint firstItem="q4h-vc-Als" firstAttribute="centerX" secondItem="q0j-md-uVi" secondAttribute="centerX" id="cgv-P8-NfU"/>
+                            <constraint firstItem="0H1-Vr-Zuy" firstAttribute="top" secondItem="jWi-NM-lxc" secondAttribute="top" constant="8" id="hzN-we-0x2"/>
+                            <constraint firstItem="UkH-Hv-mSu" firstAttribute="leading" secondItem="jWi-NM-lxc" secondAttribute="leading" id="iGm-C0-zvF"/>
+                            <constraint firstItem="q4h-vc-Als" firstAttribute="top" secondItem="jWi-NM-lxc" secondAttribute="top" constant="8" id="rol-hg-JaY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jWi-NM-lxc"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="UkH-Hv-mSu" id="7MK-Xt-S4i"/>
+                        <outlet property="segmentControl" destination="q4h-vc-Als" id="Zli-fR-5cl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R18-80-rpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3252" y="-389.05547226386807"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addChannelButton" width="22" height="22"/>
         <image name="closeButton" width="28" height="28"/>
         <image name="menuProfileIcon" width="99" height="99"/>
         <image name="profileDefault" width="192" height="192"/>
+        <image name="smackBack" width="28" height="28"/>
         <image name="smackBurger" width="40" height="40"/>
         <image name="smackLogo" width="48" height="40"/>
     </resources>
