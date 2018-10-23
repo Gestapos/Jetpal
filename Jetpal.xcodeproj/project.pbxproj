@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		625273632CE4072A48E7855B /* Pods_Jetpal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7ACE85F14B27A77D45BAEB /* Pods_Jetpal.framework */; };
+		A842E028217F36E200F86777 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A842E026217F36E200F86777 /* ProfileViewController.swift */; };
+		A842E029217F36E200F86777 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A842E027217F36E200F86777 /* ProfileViewController.xib */; };
 		A848C7B4217DD0AB0034B5B7 /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848C7B3217DD0AB0034B5B7 /* AvatarPickerViewController.swift */; };
 		A848C7B6217DD2530034B5B7 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848C7B5217DD2530034B5B7 /* AvatarCell.swift */; };
+		A848C7B9217DE1090034B5B7 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848C7B8217DE1090034B5B7 /* CircleImage.swift */; };
 		A8799ED8217A0DBC004C12E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8799ED7217A0DBC004C12E5 /* Constants.swift */; };
 		A8799EDA217A1C0F004C12E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8799ED9217A1C0F004C12E5 /* LoginViewController.swift */; };
 		A8799EDC217A2448004C12E5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8799EDB217A2448004C12E5 /* CreateAccountViewController.swift */; };
@@ -28,8 +31,11 @@
 
 /* Begin PBXFileReference section */
 		6E7ACE85F14B27A77D45BAEB /* Pods_Jetpal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jetpal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A842E026217F36E200F86777 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A842E027217F36E200F86777 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		A848C7B3217DD0AB0034B5B7 /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
 		A848C7B5217DD2530034B5B7 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		A848C7B8217DE1090034B5B7 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		A8799ED7217A0DBC004C12E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8799ED9217A1C0F004C12E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8799EDB217A2448004C12E5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,14 @@
 				C0F86F1ED3304C2A650B2861 /* Pods-Jetpal.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A842E02A217F36FE00F86777 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				A842E027217F36E200F86777 /* ProfileViewController.xib */,
+			);
+			path = Xib;
 			sourceTree = "<group>";
 		};
 		A848C7B7217DD2900034B5B7 /* Cells */ = {
@@ -159,6 +173,7 @@
 				A8799ED9217A1C0F004C12E5 /* LoginViewController.swift */,
 				A8799EDB217A2448004C12E5 /* CreateAccountViewController.swift */,
 				A848C7B3217DD0AB0034B5B7 /* AvatarPickerViewController.swift */,
+				A842E026217F36E200F86777 /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,9 +190,11 @@
 		A8BCD46A2178C658006DED8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A842E02A217F36FE00F86777 /* Xib */,
 				A848C7B7217DD2900034B5B7 /* Cells */,
 				A8BCD4682178C652006DED8E /* GradientView.swift */,
 				A8799EE0217C98C3004C12E5 /* RoundedButton.swift */,
+				A848C7B8217DE1090034B5B7 /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +277,7 @@
 			files = (
 				A8BCD4542178AF2B006DED8E /* LaunchScreen.storyboard in Resources */,
 				A8BCD4512178AF2B006DED8E /* Assets.xcassets in Resources */,
+				A842E029217F36E200F86777 /* ProfileViewController.xib in Resources */,
 				A8BCD44F2178AF2A006DED8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +345,7 @@
 				A8799EDA217A1C0F004C12E5 /* LoginViewController.swift in Sources */,
 				A8799EE1217C98C3004C12E5 /* RoundedButton.swift in Sources */,
 				A8BCD44A2178AF2A006DED8E /* AppDelegate.swift in Sources */,
+				A848C7B9217DE1090034B5B7 /* CircleImage.swift in Sources */,
 				A8799EE3217CA0F4004C12E5 /* UserDataService.swift in Sources */,
 				A8BCD4652178C117006DED8E /* ChatViewController.swift in Sources */,
 				A8799EDF217C9065004C12E5 /* AuthService.swift in Sources */,
@@ -335,6 +354,7 @@
 				A8799EDC217A2448004C12E5 /* CreateAccountViewController.swift in Sources */,
 				A848C7B6217DD2530034B5B7 /* AvatarCell.swift in Sources */,
 				A8BCD4672178C12E006DED8E /* ChannelViewController.swift in Sources */,
+				A842E028217F36E200F86777 /* ProfileViewController.swift in Sources */,
 				A8BCD45F2178BAF9006DED8E /* SWRevealViewController.m in Sources */,
 				A8799ED8217A0DBC004C12E5 /* Constants.swift in Sources */,
 			);
