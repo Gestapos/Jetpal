@@ -69,7 +69,7 @@
                                 <rect key="frame" x="0.0" y="122" width="375" height="425"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JCZ-ub-0Xc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="channelCell" id="JCZ-ub-0Xc" customClass="ChannelCell" customModule="Jetpal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JCZ-ub-0Xc" id="pAy-fS-x7H">
@@ -90,12 +90,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="p0b-6C-m3r" id="d1E-cV-ZDc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-fo-VRJ">
                                 <rect key="frame" x="281" y="83.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelPressed:" destination="AzI-FS-Amp" eventType="touchUpInside" id="7x6-w2-ns8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,6 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="xse-sx-rQZ" id="MdB-97-LPU"/>
+                        <outlet property="tableView" destination="Upd-HE-uNJ" id="xUZ-iQ-1tg"/>
                         <outlet property="userImage" destination="wqM-0k-TOe" id="lD3-mN-bxb"/>
                         <segue destination="ifZ-Zt-aaH" kind="show" identifier="toLogin" id="7BY-2i-g9z"/>
                     </connections>
@@ -283,11 +290,20 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="LoginPressed:" destination="ifZ-Zt-aaH" eventType="touchUpInside" id="XTN-BZ-M9b"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bvE-iN-hMk">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.58039215690000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="FUW-Hy-gOY" secondAttribute="trailing" constant="8" id="Ern-a3-w1s"/>
+                            <constraint firstItem="bvE-iN-hMk" firstAttribute="centerY" secondItem="5gt-0G-QPW" secondAttribute="centerY" constant="-100" id="OCe-zt-vQ6"/>
+                            <constraint firstItem="bvE-iN-hMk" firstAttribute="centerX" secondItem="5gt-0G-QPW" secondAttribute="centerX" id="UJs-IU-IL7"/>
                             <constraint firstItem="uvP-3a-8lq" firstAttribute="top" secondItem="8Dv-eC-CPc" secondAttribute="bottom" constant="40" id="UnE-eN-Dty"/>
                             <constraint firstItem="8Dv-eC-CPc" firstAttribute="centerX" secondItem="5gt-0G-QPW" secondAttribute="centerX" id="YES-ml-Jph"/>
                             <constraint firstItem="JvV-za-mEB" firstAttribute="centerX" secondItem="5gt-0G-QPW" secondAttribute="centerX" id="Yl7-ke-Y5W"/>
@@ -301,6 +317,9 @@
                         <viewLayoutGuide key="safeArea" id="yTY-4P-5ph"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTxt" destination="PHb-z6-oQi" id="ROM-qZ-0T9"/>
+                        <outlet property="spinner" destination="bvE-iN-hMk" id="9Te-Ml-Vgg"/>
+                        <outlet property="usernameTxt" destination="kfO-TY-xMg" id="Jrw-o6-o9s"/>
                         <segue destination="sKv-rF-Xsu" kind="show" identifier="toCreateAccount" id="w1r-Ca-OHS"/>
                     </connections>
                 </viewController>
