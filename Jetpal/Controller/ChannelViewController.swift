@@ -10,6 +10,7 @@ import UIKit
 
 class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userImage: CircleImage!
@@ -20,7 +21,9 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         
         SocketService.instance.getChannel { (success) in
             if success {
@@ -30,15 +33,18 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    @IBAction func addChannelPressed(_ sender: Any) {
-        let addChannel = AddChannelViewController()
-        addChannel.modalPresentationStyle = .custom
-        present(addChannel, animated: true, completion: nil)
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         setupUserInfo()
     }
+    
+    @IBAction func addChannelPressed(_ sender: Any) {
+        if AuthService.instance.isLoggedIn {
+            let addChannel = AddChannelViewController()
+            addChannel.modalPresentationStyle = .custom
+            present(addChannel, animated: true, completion: nil)
+        }
+    }
+    
 
     @IBAction func loginButtonPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -50,10 +56,17 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    //MARK: Notification methods
+    
     @objc func userDataDidChange(_ notif: Notification) {
         setupUserInfo()
     }
     
+    @objc func channelsLoaded(_ notif: Notification) {
+        tableView.reloadData()
+    }
+    
+    //MARK: SetupUserInfo
     func setupUserInfo() {
         if AuthService.instance.isLoggedIn {
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
@@ -63,6 +76,7 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
             loginButton.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
             userImage.backgroundColor = UIColor.clear
+            tableView.reloadData()
         }
     }
     
@@ -83,6 +97,15 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageService.instance.channels.count
+    }
+    
+    //MARK: - Tableview delegate method
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
+        
+        self.revealViewController()?.revealToggle(animated: true)
     }
     
 }

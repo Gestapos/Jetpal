@@ -16,6 +16,7 @@
 		A842E0352180A70A00F86777 /* AddChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A842E0332180A70A00F86777 /* AddChannelViewController.swift */; };
 		A842E0362180A70A00F86777 /* AddChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A842E0342180A70A00F86777 /* AddChannelViewController.xib */; };
 		A842E0382180B5B400F86777 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A842E0372180B5B400F86777 /* SocketService.swift */; };
+		A842E03A2180CA4F00F86777 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A842E0392180CA4F00F86777 /* Message.swift */; };
 		A848C7B4217DD0AB0034B5B7 /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848C7B3217DD0AB0034B5B7 /* AvatarPickerViewController.swift */; };
 		A848C7B6217DD2530034B5B7 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848C7B5217DD2530034B5B7 /* AvatarCell.swift */; };
 		A848C7B9217DE1090034B5B7 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A848C7B8217DE1090034B5B7 /* CircleImage.swift */; };
@@ -45,6 +46,7 @@
 		A842E0332180A70A00F86777 /* AddChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelViewController.swift; sourceTree = "<group>"; };
 		A842E0342180A70A00F86777 /* AddChannelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelViewController.xib; sourceTree = "<group>"; };
 		A842E0372180B5B400F86777 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
+		A842E0392180CA4F00F86777 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A848C7B3217DD0AB0034B5B7 /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
 		A848C7B5217DD2530034B5B7 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		A848C7B8217DE1090034B5B7 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
@@ -91,13 +93,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A842E02A217F36FE00F86777 /* Xib */ = {
+		A842E02A217F36FE00F86777 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
 				A842E027217F36E200F86777 /* ProfileViewController.xib */,
 				A842E0342180A70A00F86777 /* AddChannelViewController.xib */,
 			);
-			path = Xib;
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		A848C7B7217DD2900034B5B7 /* Cells */ = {
@@ -207,7 +209,7 @@
 		A8BCD46A2178C658006DED8E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A842E02A217F36FE00F86777 /* Xib */,
+				A842E02A217F36FE00F86777 /* XIBs */,
 				A848C7B7217DD2900034B5B7 /* Cells */,
 				A8BCD4682178C652006DED8E /* GradientView.swift */,
 				A8799EE0217C98C3004C12E5 /* RoundedButton.swift */,
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A842E02D217F46C700F86777 /* Channel.swift */,
+				A842E0392180CA4F00F86777 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A8799EE1217C98C3004C12E5 /* RoundedButton.swift in Sources */,
 				A8BCD44A2178AF2A006DED8E /* AppDelegate.swift in Sources */,
 				A848C7B9217DE1090034B5B7 /* CircleImage.swift in Sources */,
+				A842E03A2180CA4F00F86777 /* Message.swift in Sources */,
 				A842E02E217F46C700F86777 /* Channel.swift in Sources */,
 				A8799EE3217CA0F4004C12E5 /* UserDataService.swift in Sources */,
 				A842E02C217F469900F86777 /* MessageService.swift in Sources */,
