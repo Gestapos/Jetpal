@@ -19,6 +19,8 @@ class MessageService {
     var unreadChannels = [String]()
     var selectedChannel: Channel?
     
+    
+    //MARK: - FIND_ALL_CHANNELS
     func findAllChannel(completion: @escaping CompletionHandler) {
         Alamofire.request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
@@ -45,6 +47,7 @@ class MessageService {
         }
     }
     
+    //MARK: - FIND_ALL_MESSAGES_FOR_CHANNEL
     func findAllMessageForChannel(channelId: String, completion: @escaping CompletionHandler) {
         Alamofire.request("\(URL_GET_MESSAGES)\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
