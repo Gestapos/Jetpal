@@ -8,19 +8,74 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var messageTxtBox: UITextField!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendBtn: UIButton!
+    @IBOutlet weak var typingUsersLabel: UILabel!
     
     var isKeyboardAppear = false
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
         setupGestures()
         notificationSetup()
+        
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
+        sendBtn.isHidden = true
+        
+        setupServices()
+        
+    }
+    
+    
+    //MARK: - Services
+    func setupServices() {
+        SocketService.instance.getChatMessage { (success) in
+            if success {
+                self.tableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
+            }
+        }
+        
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+            var names = ""
+            var numberOfTypers = 0
+            for (typingUser, channel) in typingUsers {
+                if typingUser != UserDataService.instance.name && channel == channelId {
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names), \(typingUser)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+            
+            if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true {
+                var verb = "is"
+                if numberOfTypers > 1 {
+                    verb = "are"
+                }
+                self.typingUsersLabel.text = "\(names) \(verb) typing a message "
+            } else {
+                self.typingUsersLabel.text = ""
+            }
+            
+        }
         
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { (success) in
@@ -28,7 +83,6 @@ class ChatViewController: UIViewController {
             }
         }
     }
-    
     
     //MARK: - Gestures
     func setupGestures() {
@@ -72,6 +126,7 @@ class ChatViewController: UIViewController {
             onLoginGetMessages()
         } else {
             channelNameLabel.text = "Please Log In"
+            tableView.reloadData()
         }
     }
     
@@ -86,6 +141,22 @@ class ChatViewController: UIViewController {
         getMessages()
     }
     
+    //MARK: Check messageBox
+    @IBAction func messageBoxEditing(_ sender: Any) {
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        if messageTxtBox.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
+        } else {
+            if isTyping == false {
+                sendBtn.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
+            }
+            isTyping = true
+        }
+    }
+    
     //MARK: - SendMessages, GetMessages
     @IBAction func sendMessagePressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn {
@@ -96,6 +167,7 @@ class ChatViewController: UIViewController {
                 if success {
                     self.messageTxtBox.text = ""
                     self.messageTxtBox.resignFirstResponder()
+                    SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
                 }
             }
         }
@@ -117,8 +189,27 @@ class ChatViewController: UIViewController {
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?.id else {return}
         MessageService.instance.findAllMessageForChannel(channelId: channelId) { (success) in
-           //ss
+            self.tableView.reloadData()
         }
+    }
+    
+    //MARK: TableView datasource methods
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageCell {
+            let message = MessageService.instance.messages[indexPath.row]
+            cell.configureCell(message: message)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.messages.count
     }
     
 }

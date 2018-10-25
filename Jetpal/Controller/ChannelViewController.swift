@@ -10,7 +10,6 @@ import UIKit
 
 class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userImage: CircleImage!
