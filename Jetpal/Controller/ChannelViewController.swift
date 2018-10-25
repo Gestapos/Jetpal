@@ -21,14 +21,8 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
-        
-        SocketService.instance.getChannel { (success) in
-            if success {
-                self.tableView.reloadData()
-            }
-        }
+        notificationSetup()
+        setupServices()
         
     }
     
@@ -55,8 +49,29 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    //MARK: Notification methods
+    //MARK: Service getChannel
+    func setupServices() {
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
+        
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelId != MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn {
+                MessageService.instance.unreadChannels.append(newMessage.channelId)
+                self.tableView.reloadData()
+            }
+        }
+    }
     
+    //MARK: Notification methods
+    func notificationSetup() {
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
+    }
+    
+    //MARK: Channel method
     @objc func userDataDidChange(_ notif: Notification) {
         setupUserInfo()
     }
@@ -102,8 +117,15 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = MessageService.instance.channels[indexPath.row]
         MessageService.instance.selectedChannel = channel
-        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
         
+        if MessageService.instance.unreadChannels.count > 0 {
+            MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter{$0 != channel.id}
+        }
+        let index = IndexPath(row: indexPath.row, section: 0)
+        tableView.reloadRows(at: [index], with: .none)
+        tableView.selectRow(at: index, animated: false, scrollPosition: .none)
+        
+        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
         self.revealViewController()?.revealToggle(animated: true)
     }
     

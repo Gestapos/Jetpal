@@ -40,8 +40,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - Services
     func setupServices() {
-        SocketService.instance.getChatMessage { (success) in
-            if success {
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn == true {
+                MessageService.instance.messages.append(newMessage)
                 self.tableView.reloadData()
                 if MessageService.instance.messages.count > 0 {
                     let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
